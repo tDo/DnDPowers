@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>D&amp;D4 Power cards</title>
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0, maximum-scale=1.0" />
+    <script src="./jquery-1.6.1.min.js"></script>
+    <script src="./jquery.mobile-1.0a4.1.min.js"></script>
+    <script type="text/javascript">
+    // Element creation helper
+    function create(tag) {
+      return $(document.createElement(tag));
+    }
+    // ELement creation helper with filled content
+    function fill(tag, content) {
+      return create(tag).html(content);
+    }
+    // Verify the content is not undefined or an empty string
+    function defined(value) {
+      return (value != undefined) && (value != "");
+    }
+    // Small helper jquery extension which creates a definition list entry
+    (function($) {
+      $.fn.define = function(dt, dd) {
+        if (defined(dd)) {
+          this.append(fill('dt', dt));
+          this.append(fill('dd', dd));
+        }
+      }
+    })(jQuery);
+    
+    // JQuery helper plugin which creates the structure for a single category of powers
+    (function($) {
+      $.fn.section = function(category, canBeMarkedAsUsed, data) {
+        var that = this;
+        
+        $.each(data, function(i, item) {
+           // Create the article
+           var article = create('article');
+            
+           // Create the header (Appending name and level)
+           var header = create('header');
+           
+           if (defined(item.name) && defined(item.level))
+            header.append(fill('h1', item.name).append(fill('span', item.level)));
+            
+           // Bind toggle to header
+           header.tap(function() {
+             var parent =  $(this).parent();
+             var div    = parent.find('div');
+             div.slideToggle('fast');
+            });
+            
+            // Use and unuse swipes (right: used, left: unused)
+            if (canBeMarkedAsUsed) {
+              header.swiperight(function() { $(this).parent().addClass('used'); });
+              header.swipeleft(function() { $(this).parent().removeClass('used'); });
+            }
+            
+            // And allow "using/unusing" the power card via double click/tap
+            header.dblclick(function() {
+              var parent = $(this).parent();
+              parent.hide();
+            });
+           
+           article.append(header);
+           
+           // Create the content part
+           var content = create('div');
+           content.append(fill('h3', category));
+           
+           // Create details
+           var details = create('details');
+
+           // Summary
+           if (defined(item.summary))
+            details.append(fill('summary', item.summary));
+           
+           // Keywords
+           if (defined(item.keywords) && jQuery.isArray(item.keywords)) {
+             var keywords = create('ul');
+             $.each(item.keywords, function(j, keyword) {
+               keywords.append(fill('li', keyword));
+             });
+             details.append(keywords);
+           }
+           
+           // Further informations
+           var infos = create('dl');
+
+           infos.define('Action', item.action);
+           infos.define('Type', item.type);
+           infos.define('Target', item.target);
+           infos.define('Attack', item.attack);
+           infos.define('Trigger', item.trigger);
+           infos.define('Hit', item.hit);
+           infos.define('Miss', item.miss);
+           infos.define('Effect', item.effect);
+           infos.define('Sustain Minor', item.sustainminor);
+           infos.define('Special', item.special);
+           
+           details.append(infos);
+           
+           // The footnote
+           if (defined(item.subnote))
+            details.append(fill('p', item.subnote));
+           
+           content.append(details);
+           
+           // Append the subparts to the article
+           article.append(content);
+           // And the article to the section
+           that.append(article);
+         });
+      }
+    })(jQuery);
+    // Actual parser
+    $(document).ready(function(){
+       // Get the json file holding character powers
+       $.getJSON('./belgretor.json', function(data) {
+         
+         if ($.isArray(data.at_will)) $('#at_will').section('At-Will', false, data.at_will);
+         if ($.isArray(data.encounter)) $('#encounter').section('Encounter', true, data.encounter);
+         if ($.isArray(data.daily)) $('#daily').section('Daily', true, data.daily);
+       });
+       
+       
+     });
+    </script>
+    
+    <style type="text/css">
+      body {
+        -webkit-text-size-adjust:none;
+        margin: 0;
+        padding: 0;
+        font-family: Helvetica;
+        font-size: 10pt;
+      }
+    
+      h1 { font-size: 14pt; }
+      h2 { font-size: 12pt; }
+      h3 { font-size: 11pt; }
+    
+      section#at_will article header { background-color: #5E8D62; }
+      section#encounter article header { background-color: #801C32; }
+      section#daily article header { background-color: #414241; }
+      section#item article header { background-color: #CD8E36; }
+      
+      section article.used header { background-color: #ccc !important; text-decoration: line-through; } 
+      section article.used div { color: #ccc;}
+      
+      article { width: 100%; display: block; border-bottom: 4px solid #ccc; }
+      article > * { padding: 5px 10px 5px 10px; }
+    
+      article header { display: block; color: #fff; }
+      article header h1 span { font-size: 10pt; float: right; clear: right;}
+
+      article div { display: none;}
+      article div details ul { padding: 0; }
+      article div details ul li { display: inline; font-weight: bold; }
+      article div details ul li:after { content: ",";}
+      article div details ul li:last-child:after { content: "";}
+      article div details dl dt { width: 60px; float: left; clear: left; font-weight: bold;}
+      article div details dl dt:after { content: ":";}
+      article div details dl dd { margin-left: 65px; }
+    
+    </style>
+  </head>
+  <body>
+    <section id="at_will"></section>
+    <section id="encounter"></section>
+    <section id="daily"></section>
+    <section id="item"></section>
+  </body>
+</html>
