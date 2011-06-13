@@ -21,12 +21,12 @@ The file hols a simple object structure which places powers in the different cat
 Each categories represents an array of cards which themselves are also represented as json objects with pre-defined keys
 which hold information about the character.
 <dl>
-    <dt>name</dt><dd>Name of the power (*)</dd>
-    <dt>level</dt><dd>Power level (*)</dd>
-    <dt>summary</dt><dd>Short power summary (*)</dd>
-    <dt>keywords</dt><dd>Array holding the multiple power keywords (*)</dd>
-    <dt>action</dt><dd>The power action type (Standard, Minor, Free) (*)</dd>
-    <dt>type</dt><dd>Type of the attack (Meelee, Range, etc.) (*)</dd>
+    <dt>name<sup>*</sup></dt><dd>Name of the power</dd>
+    <dt>level<sup>*</sup></dt><dd>Power level</dd>
+    <dt>summary<sup>*</sup></dt><dd>Short power summary</dd>
+    <dt>keywords<sup>*</sup></dt><dd>Array holding the multiple power keywords</dd>
+    <dt>action<sup>*</sup></dt><dd>The power action type (Standard, Minor, Free)</dd>
+    <dt>type<sup>*</sup></dt><dd>Type of the attack (Meelee, Range, etc.)</dd>
     <dt>target</dt><dd>Target of the power</dd>
     <dt>attack</dt><dd>Attack attributes (x vs. y)</dd>
     <dt>trigger</dt><dd>Power trigger</dd>
@@ -37,7 +37,7 @@ which hold information about the character.
     <dt>subnote</dt><dd>A subnote (Like Does xy on Level 11)</dd>
 </dl>
 
-<small>Entries marked with (*) are required</small>
+<small>Entries marked with <sup>*</sup> are required</small>
 
 So an example might look like this
 
