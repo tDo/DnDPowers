@@ -6,6 +6,10 @@ cards on mobile touch systems like iOS or Android. It allows to display "At-Will
 and "Daily" powers as a convenient list which allows toggling of further content as well as marking
 powers as "used" via a simple right swipe (and unmarking them again via a left swipe).
 
+This small app does not required anything but a very simple web server which is capable
+of serving files (No PHP, Ruby, Python, etc. required). Just copy all files to a folder
+which is served by a webserver and direct your browser to the uri of the index.html
+
 Character File
 --------------
 The character is stored in a single json file `./character.json`
