@@ -61,7 +61,7 @@ A full example character (My cleric "Belgretor Tamiklos") can be found in `./exa
 
 - - -
 
-Dungeons and Dragons and all content associated with it is (C) 1978 - 2011 Wizards of the Coast
+Dungeons and Dragons and all content associated with it is (C) 1974 - 2011 Wizards of the Coast
 
 the DnDPowers application does not hold any rights to the content
 and so does not provide the material associated with Dungeons and Dragons
