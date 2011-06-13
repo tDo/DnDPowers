@@ -117,7 +117,7 @@
     // Actual parser
     $(document).ready(function(){
        // Get the json file holding character powers
-       $.getJSON('./belgretor.json', function(data) {
+       $.getJSON('./character.json', function(data) {
          
          if ($.isArray(data.at_will)) $('#at_will').section('At-Will', false, data.at_will);
          if ($.isArray(data.encounter)) $('#encounter').section('Encounter', true, data.encounter);
