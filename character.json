@@ -1,5 +1,188 @@
 {
-  "at_will": [],
-  "encounter": [],
-  "daily": []
+  "at_will": [
+    { "name":     "Sacred Flame",
+      "level":    "Cleric Attack 1",
+      "summary":  "Sacred light shines from above, searing a single enemy with its radiance while at the same time aiding an ally with its beneficent power.",
+      "keywords": ["Divine", "Implement", "Radiant"],
+      "action":   "Standard Action",
+      "type":     "Ranged 5",
+      "target":   "One Creature",
+      "attack":   "Wisdom vs. Reflex",
+      "hit":      "1d6 + Wisdom modifier radiant damage, and one ally you can see chooses either to gain temporary hit points equal to your Charisma modifier + one-half your level or to make a saving throw.",
+      "subnote":  "Increase damage to 2d6 + Wisdom modifier at 21st level."
+    },
+    
+    { "name":     "Lance of Faith",
+      "level":    "Cleric Attack 1",
+      "summary":  "A brilliant ray of light sears your foe with golden radiance. Sparkles of light linger around the target, guiding your ally’s attack.",
+      "keywords": ["Divine", "Implement", "Radiant"],
+      "action":   "Standard Action",
+      "type":     "Ranged 5",
+      "target":   "One Creature",
+      "attack":   "Wisdom vs. Reflex",
+      "hit":      "1d8 + Wisdom modifier radiant damage, and one ally you can see gains a +2 power bonus to his or her next at- tack roll against the target.",
+      "subnote":  "Increase damage to 2d8 + Wisdom modifier at 21st level."
+    },
+    
+    { "name":     "Righteous Brand",
+      "level":    "Cleric Attack 1",
+      "summary":  "You smite your foe with your weapon and brand it with a ghostly, glowing symbol of your deity’s anger. By naming one of your allies when the symbol appears, you add divine power to that ally’s attacks against the branded foe.",
+      "keywords": ["Divine", "Weapon"],
+      "action":   "Standard Action",
+      "type":     "Melee weapon",
+      "target":   "One Creature",
+      "attack":   "Strength vs. AC",
+      "hit":      "1[W] + Strength modifier damage, and one ally within 5 squares of you gains a power bonus to melee attack rolls against the target equal to your Strength modifier until the end of your next turn.",
+      "subnote":  "Increase damage to 2[W] + Strength modifier at 21st level."
+    }
+    
+  ],
+  "encounter": [
+  
+    { "name":     "Channel Divinity: Divine Fortune",
+      "level":    "Cleric Feature",
+      "summary":  "In the face of peril, you hold true to your faith and receive a special boon.",
+      "keywords": ["Divine"],
+      "action":   "Free Action",
+      "type":     "Personal",
+      "effect":   "You gain a +1 bonus to your next attack roll or saving throw before the end of your next turn."
+    },
+    
+    { "name":     "Channel Divinity: Turn Undead",
+      "level":    "Cleric Feature",
+      "summary":  "You sear undead foes, push them back, and root them in place",
+      "keywords": ["Divine", "Implement", "Radiant"],
+      "action":   "Standard Action",
+      "type":     "Close burst 2 (5 at 11th level, 8 at 21st level)",
+      "target":   "Each undead creature in burst",
+      "attack":   "Wisdom vs. Will",
+      "hit":      "1d10 + Wisdom modifier radiant damage, and you push the target a number of squares equal to 3 + your Charisma modifier. The target is immobilized until the end of your next turn.",
+      "miss":     "Half damage, and the target is not pushed or immobilized.",
+      "subnote":  "Increase damage to 2d10 + Wisdom modifier at 5th level, 3d10 + Wisdom modifier at 11th level, 4d10 + Wisdom modifier at 15th level, 5d10 + Wisdom modifier at 21st level, and 6d10 + Wisdom modifier at 25th level."
+    },
+    
+    { "name":     "Channel Divinity: Armor of Bahamut",
+      "level":    "Feat Power",
+      "summary":  "Bahamut protects you or a friend from devastating harm.",
+      "keywords": ["Divine"],
+      "action":   "Immediate Interrupt",
+      "type":     "Ranged 5",
+      "trigger":  "An enemy scores a critical hit on you or an ally",
+      "effect":   "Turn a critical hit against you or an ally within range into a normal hit.",
+      "special":  "You must take the Armor of Bahamut feat to use this power."
+    },
+    
+    { "name":     "Healing Word",
+      "level":    "Cleric Feature",
+      "summary":  "You whisper a brief prayer as divine light washes over your target, helping to mend its wounds.",
+      "keywords": ["Divine", "Healing"],
+      "action":   "Minor Action",
+      "type":     "Close burst 5 (10 at 11th level, 15 at 21st level)",
+      "target":   "You or one ally",
+      "effect":   "The target can spend a healing surge and regain an additional 1d6 hit points.",
+      "special":  "You can use this power twice per encounter, but only once per round. At 16th level, you can use this power three times per encounter.",
+      "subnote":  "Increase the amount of additional hit points regained to 2d6 at 6th level, 3d6 at 11th level, 4d6 at 16th level, 5d6 at 21st level, and 6d6 at 26th level."
+    },
+    
+    { "name":     "Healing Strike",
+      "level":    "Cleric Attack 1",
+      "summary":  "Divine radiance gleams from your weapon. When you smite your enemy, your deity bestows a minor blessing in the form of healing for you or one of your allies.",
+      "keywords": ["Divine", "Healing", "Radiant", "Weapon"],
+      "action":   "Standard Action",
+      "type":     "Melee Weapon",
+      "target":   "One creature",
+      "attack":   "Strength vs. AC",
+      "hit":      "2[W] + Strength modifier radiant damage, and the target is marked until the end of your next turn. In addition, you or one ally within 5 squares of you can spend a healing surge."
+    },
+    
+    { "name":     "Command",
+      "level":    "Cleric Attack 3",
+      "summary":  "You utter a single word to your foe, a word that demands obedi- ence. You can choose to drive the foe back, order it closer, or cause the foe to throw itself to the ground.",
+      "keywords": ["Charm", "Divine", "Implement"],
+      "action":   "Standard Action",
+      "type":     "Ranged 10",
+      "target":   "One creature",
+      "attack":   "Wisdom vs. Will",
+      "hit":      "The target is dazed until the end of your next turn. In addition, you can choose to knock the target prone or slide the target a number of squares equal to 3 + your Charisma modifier."
+    },
+    
+    { "name":     "Searing Light",
+      "level":    "Cleric Attack 7",
+      "summary":  "You invoke the power of your deity. From your holy symbol a sear- ing ray of light flashes forth, striking and blinding your enemy for a short time.",
+      "keywords": ["Divine", "Implement", "Radiant"],
+      "action":   "Standard Action",
+      "type":     "Ranged 10",
+      "target":   "One creature",
+      "attack":   "Wisdom vs. Reflex",
+      "hit":      "2d6 + Wisdom modifier radiant damage, and the target is blinded until the end of your next turn."
+    }
+    
+  ],
+  "daily": [
+  
+    { "name":     "Beacon of Hope",
+      "level":    "Cleric Attack 1",
+      "summary":  "A burst of divine energy harms your foes and heals your allies. The radiant energy lingers around your holy symbol and im- proves your healing powers for the rest of the battle.",
+      "keywords": ["Divine", "Healing", "Implement"],
+      "action":   "Standard Action",
+      "type":     "Close burst 3",
+      "target":   "Each enemy in burst",
+      "attack":   "Wisdom vs. Will",
+      "hit":      "The target is weakened until the end of its next turn.",
+      "effect":   "You and all your allies in the burst regain 5 hit points, and your healing powers restore +5 hit points until the end of the encounter"
+    },
+    
+    { "name":     "Cure Light Wounds	",
+      "level":    "Cleric Utility 2",
+      "summary":  "You utter a simple prayer and gain the power to instantly heal wounds, and your touch momentarily suffuses you or a wounded creature with a dim silver light.",
+      "keywords": ["Divine", "Healing"],
+      "action":   "Standard Action",
+      "type":     "Melee touch",
+      "target":   "You or one creature",
+      "effect":   "The target regains hit points as if it had spent a healing surge."
+    },
+    
+    { "name":     "Consecrated Ground",
+      "level":    "Cleric Attack 5",
+      "summary":  "With a wave of your hand, jagged lines of radiant light spread across the ground around you like a crackling web, moving at your whim. Enemies that stand upon this ground suffer the wrath of your deity.",
+      "keywords": ["Divine", "Healing", "Radiant Zone"],
+      "action":   "Standard Action",
+      "type":     "Close burst 1",
+      "effect":   "The burst creates a zone of sanctified ground that lasts until the end of your next turn. You can move the ori- gin square of the zone 3 squares as a move action. Enemies that start their turns within the zone take 1d6 + your Cha- risma modifier radiant damage. You and any allies who are bloodied and start their turns within the zone regain hit points equal to 1 + your Charisma modifier.",
+      "sustainminor": "The zone persists."
+    },
+    
+    { "name":     "Cure Serious Wounds	",
+      "level":    "Cleric Utility 6",
+      "summary":  "You utter a simple prayer and gain the power to instantly heal wounds, and your touch momentarily suffuses you or a wounded creature with bright silver light.",
+      "keywords": ["Divine", "Healing"],
+      "action":   "Standard Action",
+      "type":     "Melee touch",
+      "target":   "You or one creature",
+      "effect":   "The target regains hit points as if it had spent two healing surges."
+    },
+    
+    { "name":     "Divine Power",
+      "level":    "Cleric Attack 9",
+      "summary":  "You swing your weapon in a wide arc around you, creating a halo of divine energy that drives foes back while fortifying you and your allies.",
+      "keywords": ["Divine", "Healing", "Radiant", "Weapon"],
+      "action":   "Standard Action",
+      "type":     "Close burst 2",
+      "target":   "Each enemy in burst you can see",
+      "attack":   "Strength vs. Fortitude",
+      "hit":      "2[W] + Strength modifier radiant damage, and you push the target 1 square.",
+      "effect":   "Until the end of the encounter, you gain regeneration 5, and you and each ally within the burst gain a +2 power bonus to AC."
+    },
+    
+    { "name":     "Mass Cure Light Wounds",
+      "level":    "Cleric Utility 10",
+      "summary":  "With a wave of your hand, healing motes of silver light engulf you and all nearby allies.",
+      "keywords": ["Divine", "Healing"],
+      "action":   "Standard Action",
+      "type":     "Close burst 5",
+      "target":   "You and each ally in burst",
+      "effect":   "The targets regain hit points as if they had spent a healing surge. Add your Charisma modifier to the hit points regained."
+    }
+    
+  ]
 }
