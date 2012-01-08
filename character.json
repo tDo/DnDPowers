@@ -115,6 +115,19 @@
       "target":   "One creature",
       "attack":   "Wisdom vs. Reflex",
       "hit":      "2d6 + Wisdom modifier radiant damage, and the target is blinded until the end of your next turn."
+    },
+
+    { "name":     "Reversal of Fortunes",
+      "level":    "Miracle Worker Attack 11",
+      "summary":  "A whispered benediction heals the injuries of an ally and gives the attacker a taste of the pain it inflicted.",
+      "keywords": ["Divine", "Healing", "Implement"],
+      "action":   "Immediate Reaction",
+      "type":     "Ranged 5",
+      "target":   "The triggering enemy",
+      "trigger":  "An enemy within 5 squares of you hits your ally adjancent to it",
+      "attack":   "Wisdom vs. Fortitude",
+      "hit":      "2d10 + Wisdom modifier damage. The ally hit by the triggering enemys attack can spend a healing surge and regain 2d10 addition hit points." 
+      
     }
     
   ],
